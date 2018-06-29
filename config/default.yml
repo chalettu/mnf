@@ -1,0 +1,5 @@
+Customer:
+- concurrency: 10
+  hold-for: 5m
+  ramp-up: 2m
+  scenario: yaml_example
