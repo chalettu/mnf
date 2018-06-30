@@ -5,8 +5,8 @@ yaml = require('js-yaml');
 fs   = require('fs');
 // SETUP LOGGING
 log = require('./log');
-
-
+// const router = require('./routes')
+const routes = require('./routes')
 log.info(config.get('blah'))
 // Get document, or throw exception on error
 
@@ -27,5 +27,6 @@ app.get('/', function(req, res){
    */
    res.send("Hello world!");
 });
+app.use('/', routes);
 
 app.listen(3000);
