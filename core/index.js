@@ -5,28 +5,17 @@ yaml = require('js-yaml');
 fs   = require('fs');
 // SETUP LOGGING
 log = require('./log');
+require ('./passport')
+const auth = require('./pages/auth');
+
 // const router = require('./routes')
 const routes = require('./routes')
 log.info(config.get('blah'))
 // Get document, or throw exception on error
 
 app.get('/', function(req, res){
-
-  /**
-   * class Hero {
-    constructor(name, level) {
-        this.name = name;
-        this.level = level;
-    }
-
-    // Adding a method to the constructor
-    greet() {
-        return `${this.name} says hello.`;
-    }
-}
-   */
    res.send("Hello world!");
 });
 app.use('/', routes);
-
+ app.use('/auth', auth);
 app.listen(3000);
